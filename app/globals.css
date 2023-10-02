@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+    --colors-primary-red: hsl(0, 100%, 67%);
+    --colors-primary-orange: hsl(39, 100%, 56%);
+    --colors-primary-teal: hsl(166, 100%, 37%);
+    --colors-primary-cobalt: hsl(234, 85%, 45%);
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    --colors-background-slate-blue: hsl(252, 100%, 67%);
+    --colors-background-royal-blue: hsl(241, 81%, 54%);
+
+    --colors-gradient-violet-blue: hsla(256, 72%, 46%, 1);
+    --colors-gradient-persian-blue: hsla(241, 72%, 46%, 0);
+
+    --colors-neutral-white: hsl(0, 0%, 100%);
+    --colors-neutral-pale-blue: hsl(221, 100%, 96%);
+    --colors-neutral-light-lavendar: hsl(241, 81%, 54%);
+    --colors-neutral-dark-blue: hsl(224, 30%, 27%);
+  }
+
+  p {
+    font-size: 18px;
+  }
 }
