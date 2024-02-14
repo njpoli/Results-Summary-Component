@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Hanken_Grotesk } from 'next/font/google';
+import { Providers } from './providers';
 
 const hankenGotesk = Hanken_Grotesk({ subsets: ['latin'] });
 
@@ -24,7 +25,9 @@ export default function RootLayout({
           href='/favicon-32x32.png'
         ></link>
       </head>
-      <body className={hankenGotesk.className}>{children}</body>
+      <body className={hankenGotesk.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

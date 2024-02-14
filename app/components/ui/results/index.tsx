@@ -1,5 +1,8 @@
+'use client';
+import { useQuery } from '@tanstack/react-query';
 import Categories from './categories';
 import Summary from './summary';
+import { getResultsData } from '@/app/utils/getResultsData';
 
 export type ResultsData = {
   category: string;
@@ -7,23 +10,19 @@ export type ResultsData = {
   icon: string;
 };
 
-export async function getData(): Promise<ResultsData[]> {
-  const baseURL = `${process.env.VERCEL_ENV ? 'https://' : ''}${
-    process.env.VERCEL_URL
-  }`;
-  console.log(baseURL);
-  const res = await fetch(`${baseURL}/api/results`);
+function Results() {
+  const queryKey = ['results', 'all'];
+  const { status, data } = useQuery({
+    queryKey,
+    queryFn: () => getResultsData(),
+    staleTime: Infinity,
+    refetchOnWindowFocus: false,
+  });
 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
+  if (status !== 'success') {
+    return <div>Loading...</div>;
   }
 
-  return res.json();
-}
-
-async function Results() {
-  const data = await getData();
   const sum = data.reduce((prev, curr) => curr.score + prev, 0);
   const average = Math.round(sum / data.length);
 
