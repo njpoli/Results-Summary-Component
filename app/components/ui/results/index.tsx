@@ -1,6 +1,7 @@
+import Categories from './categories';
 import Summary from './summary';
 
-type ResultsData = {
+export type ResultsData = {
   category: string;
   score: number;
   icon: string;
@@ -23,8 +24,9 @@ async function Results() {
   const average = Math.round(sum / data.length);
 
   return (
-    <div className='flex flex-col shadow-2xl shadow-[--colors-neutral-pale-blue] sm:flex-row w-full max-w-xl rounded-[25px] min-h-[430px]'>
+    <div className='flex flex-col shadow-full shadow-neutral-pale-blue sm:flex-row w-full max-w-xl rounded-b-[25px] sm:rounded-[25px] min-h-[400px]'>
       <Summary average={average} />
+      <Categories resultsData={data} />
     </div>
   );
 }
