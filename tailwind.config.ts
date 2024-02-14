@@ -14,7 +14,7 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       screens: {
-        short: { raw: '(min-height: 500px)' },
+        short: { raw: '(min-height: 720px)' },
       },
       boxShadow: {
         full: '15px 5px 30px 10px rgba(0, 0, 0, 0.3)',

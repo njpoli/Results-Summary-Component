@@ -4,7 +4,7 @@ type SummaryProps = {
 
 function Summary({ average }: SummaryProps) {
   return (
-    <div className='flex flex-col bg-gradient-to-b from-gradient-violet-blue/90 to-gradient-persian-blue rounded-b-[25px] sm:rounded-[25px] text-white basis-1/2 items-center sm:space-y-6 p-6'>
+    <div className='flex flex-col bg-gradient-to-b from-gradient-violet-blue/90 to-gradient-persian-blue rounded-b-[25px] sm:rounded-[25px] text-white basis-1/2 items-center space-y-6 p-6'>
       <p className='text-white/60 font-semibold mt-4'>Your Result</p>
       <div className='flex flex-col items-center rounded-full bg-gradient-to-b from-gradient-persian-blue to-gradient-violet-blue w-32 h-32 shrink-0 justify-center'>
         <p className='text-5xl font-semibold'>{average}</p>
