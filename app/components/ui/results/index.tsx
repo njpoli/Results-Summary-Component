@@ -8,11 +8,11 @@ export type ResultsData = {
 };
 
 export async function getData(): Promise<ResultsData[]> {
-  const res = await fetch(
-    `${process.env.VERCEL_ENV ? 'https://' : ''}${
-      process.env.VERCEL_URL
-    }/api/results`
-  );
+  const baseURL = `${process.env.VERCEL_ENV ? 'https://' : ''}${
+    process.env.VERCEL_URL
+  }`;
+  console.log(baseURL);
+  const res = await fetch(`${baseURL}/api/results`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
